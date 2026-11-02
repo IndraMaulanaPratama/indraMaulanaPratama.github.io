@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Indra Maulana Pratama — Senior Backend Engineer</title>
+<meta name="description" content="Senior Backend Engineer specialising in Laravel, Node.js and system integration. 7+ years building production platforms for government, education, logistics and financial services in Indonesia.">
+<meta property="og:title" content="Indra Maulana Pratama — Senior Backend Engineer">
+<meta property="og:description" content="Backend engineering and system integration. Laravel, Node.js, Docker, AWS.">
+<meta property="og:image" content="https://indramaulana.com/photo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://indramaulana.com">
+<link rel="canonical" href="https://indramaulana.com">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#ffffff; --surface:#f7f7f5; --line:#e3e3df;
+  --ink:#16171a; --ink-2:#4a4d54; --ink-3:#7a7e87;
+  --accent:#1f5f4f; --accent-soft:#e6f0ec;
+  --radius:10px; --maxw:860px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#101114; --surface:#17191d; --line:#272a30;
+    --ink:#eceef1; --ink-2:#b2b7bf; --ink-3:#848a93;
+    --accent:#6fc2a7; --accent-soft:#17241f;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#101114; --surface:#17191d; --line:#272a30;
+  --ink:#eceef1; --ink-2:#b2b7bf; --ink-3:#848a93;
+  --accent:#6fc2a7; --accent-soft:#17241f;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 16px)}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.65; letter-spacing:-0.002em;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+a{color:var(--accent); text-underline-offset:3px}
+a:hover{text-decoration:underline}
+h1,h2,h3{line-height:1.25; letter-spacing:-0.02em; margin:0}
+
+/* language switching */
+:root[data-lang="en"] .lang-id{display:none !important}
+:root[data-lang="id"] .lang-en{display:none !important}
+
+header{padding:64px 0 40px; border-bottom:1px solid var(--line)}
+.avatar{width:96px; height:96px; border-radius:99px; overflow:hidden; margin:0 0 22px;
+  background:#1a1a1a; border:1px solid var(--line); box-shadow:0 0 0 4px var(--surface);
+  display:flex; align-items:center; justify-content:center}
+.avatar img{width:100%; height:100%; object-fit:cover; display:block}
+.avatar span{font-size:1.55rem; font-weight:700; color:var(--ink-3); letter-spacing:.06em}
+.eyebrow{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin:0 0 14px}
+h1{font-size:clamp(1.9rem,6vw,2.7rem); font-weight:700}
+.role{font-size:clamp(1rem,3.2vw,1.18rem); color:var(--ink-2); margin:10px 0 0; font-weight:500}
+.pitch{color:var(--ink-2); margin:20px 0 0; max-width:62ch}
+.meta{display:flex; flex-wrap:wrap; gap:8px 18px; margin:24px 0 0; font-size:.9rem; color:var(--ink-3)}
+.links{display:flex; flex-wrap:wrap; gap:10px; margin:26px 0 0}
+.btn{display:inline-block; padding:8px 15px; border:1px solid var(--line); border-radius:var(--radius);
+  font-size:.9rem; text-decoration:none; color:var(--ink); background:var(--surface); transition:border-color .15s}
+.btn:hover{border-color:var(--accent); text-decoration:none}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:var(--bg); font-weight:600}
+.btn.primary:hover{opacity:.9}
+
+section{padding:52px 0; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:1.28rem; font-weight:700; margin-bottom:6px}
+.sub{color:var(--ink-3); font-size:.92rem; margin:0 0 28px}
+p{margin:0 0 14px}
+
+.group-label{font-size:.74rem; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-3); margin:34px 0 14px; font-weight:600}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:20px 20px 18px; margin-bottom:14px}
+.card h3{font-size:1.04rem; font-weight:650}
+.card .ctx{font-size:.84rem; color:var(--ink-3); margin:5px 0 12px}
+.card p{font-size:.94rem; color:var(--ink-2); margin:0 0 12px}
+.outcomes{margin:0 0 14px; padding-left:18px}
+.outcomes li{font-size:.93rem; color:var(--ink-2); margin-bottom:5px}
+.stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
+.tag{font-size:.76rem; padding:3px 9px; border-radius:99px;
+  background:var(--accent-soft); color:var(--accent); white-space:nowrap}
+.visit{font-size:.86rem; margin-top:12px; display:inline-block}
+.nda{font-size:.76rem; padding:3px 9px; border-radius:99px; border:1px dashed var(--line); color:var(--ink-3)}
+
+.job{padding:18px 0; border-top:1px solid var(--line)}
+.job h3{font-size:1rem; font-weight:650}
+.job .org{font-size:.92rem; color:var(--ink-2); margin:3px 0 0}
+.job .when{font-size:.84rem; color:var(--ink-3); margin:3px 0 10px}
+.job p{font-size:.93rem; color:var(--ink-2); margin:0}
+
+.skillrow{display:grid; grid-template-columns:190px 1fr; gap:10px 20px; padding:11px 0; border-top:1px solid var(--line)}
+.skillrow dt{font-size:.88rem; font-weight:650; color:var(--ink)}
+.skillrow dd{margin:0; font-size:.93rem; color:var(--ink-2)}
+@media (max-width:620px){ .skillrow{grid-template-columns:1fr; gap:3px} }
+
+footer{padding:40px 0 60px; color:var(--ink-3); font-size:.88rem}
+
+.controls{position:fixed; top:calc(env(safe-area-inset-top,0px) + 14px); right:14px; z-index:20; display:flex; gap:8px}
+.controls button{height:38px; border-radius:99px; cursor:pointer; background:var(--surface);
+  border:1px solid var(--line); color:var(--ink); font-size:13px; line-height:1;
+  display:flex; align-items:center; justify-content:center; font-family:inherit}
+#themeBtn{width:38px; font-size:15px}
+#langBtn{padding:0 13px; font-weight:650; letter-spacing:.04em}
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="langBtn" type="button" aria-label="Switch language">ID</button>
+  <button id="themeBtn" type="button" aria-label="Toggle colour theme">◐</button>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="avatar">
+      <img src="photo.jpg" alt="Indra Maulana Pratama" onerror="this.remove();document.getElementById('avatarFallback').hidden=false">
+      <span id="avatarFallback" hidden>IMP</span>
+    </div>
+    <p class="eyebrow">Bandung, Indonesia · GMT+7</p>
+    <h1>Indra Maulana Pratama</h1>
+    <p class="role lang-en">Senior Backend Engineer · System Integration · Systems Analyst</p>
+    <p class="role lang-id">Senior Backend Engineer · Integrasi Sistem · Analis Sistem</p>
+    <p class="pitch lang-en">I build the systems institutions actually run on — APIs, integrations and internal
+      platforms that replace paper, spreadsheets and manual reconciliation. Seven years across government,
+      higher education, logistics and financial services in Indonesia.</p>
+    <p class="pitch lang-id">Saya membangun sistem yang benar-benar dipakai institusi untuk berjalan — API,
+      integrasi, dan platform internal yang menggantikan kertas, lembar kerja, dan rekonsiliasi manual. Tujuh
+      tahun di lingkungan pemerintahan, pendidikan tinggi, logistik, dan jasa keuangan di Indonesia.</p>
+    <div class="meta lang-en"><span>Available for full-time remote &amp; hybrid</span><span>Open to relocation</span></div>
+    <div class="meta lang-id"><span>Terbuka untuk penuh waktu remote &amp; hybrid</span><span>Bersedia relokasi</span></div>
+    <div class="links">
+      <a class="btn primary lang-en" href="cv.pdf">Download CV</a>
+      <a class="btn primary lang-id" href="cv.pdf">Unduh CV</a>
+      <a class="btn" href="https://github.com/indraMaulanaPratama" rel="me noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/rama-wirahma/" rel="me noopener">LinkedIn</a>
+      <a class="btn" href="mailto:maulana.indra808@gmail.com">Email</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="lang-en">About</h2><h2 class="lang-id">Tentang</h2>
+    <p class="sub lang-en">What I do, and how I work</p>
+    <p class="sub lang-id">Apa yang saya kerjakan, dan bagaimana saya bekerja</p>
+    <p class="lang-en">Most of my work sits where a messy human process meets a system that has to be correct
+      every time: library clearance for thousands of students, accreditation documents scattered across a dozen
+      units, fund reconciliation where three parties each hold a slightly different version of the truth.</p>
+    <p class="lang-id">Sebagian besar pekerjaan saya berada di titik pertemuan antara proses manusia yang
+      berantakan dan sistem yang harus benar setiap saat: bebas pustaka untuk ribuan praja, dokumen akreditasi
+      yang tersebar di belasan unit, rekonsiliasi dana ketika tiga pihak sama-sama memegang versi kebenaran
+      yang sedikit berbeda.</p>
+    <p class="lang-en">My default stack is PHP/Laravel and Node.js over MySQL, PostgreSQL and Oracle, deployed
+      on Linux infrastructure I manage myself. Beyond writing the code, I usually own the part before it —
+      sitting with the people who will use the system, turning what they describe into functional
+      specifications, UML models and entity-relationship designs, then reporting delivery progress back to
+      leadership in language they can act on.</p>
+    <p class="lang-id">Tumpukan teknologi utama saya adalah PHP/Laravel dan Node.js di atas MySQL, PostgreSQL,
+      dan Oracle, yang berjalan pada infrastruktur Linux yang saya kelola sendiri. Di luar menulis kode, saya
+      biasanya memegang bagian sebelumnya — duduk bersama orang-orang yang akan memakai sistem itu,
+      menerjemahkan yang mereka ceritakan menjadi spesifikasi fungsional, model UML, dan rancangan ERD, lalu
+      melaporkan progres kepada pimpinan dalam bahasa yang bisa mereka tindaklanjuti.</p>
+    <p class="lang-en">I currently serve as IT Technical Expert at the Institute of Home Affairs Governance
+      (IPDN), Indonesia’s national school of government, where I have shipped eight production platforms
+      since 2023.</p>
+    <p class="lang-id">Saat ini saya menjabat sebagai Tenaga Ahli Teknologi Informasi di Institut Pemerintahan
+      Dalam Negeri (IPDN), dan telah menyerahkan delapan platform produksi sejak 2023.</p>
+  </div>
+</section>
+<section id="work">
+<div class="wrap">
+<h2 class="lang-en">Selected Work</h2>
+<h2 class="lang-id">Karya Pilihan</h2>
+<p class="sub lang-en">Ten systems delivered across government, education and enterprise</p>
+<p class="sub lang-id">Sepuluh sistem yang telah diserahkan di lingkungan pemerintahan, pendidikan, dan enterprise</p>
+<p class="group-label lang-en">Government platforms — custom built</p>
+<p class="group-label lang-id">Platform pemerintahan — dibangun dari nol</p>
+<article class="card">
+<h3 class="lang-en">Bebas Pustaka — Library Clearance System</h3>
+<h3 class="lang-id">Bebas Pustaka — Sistem Bebas Pinjam Perpustakaan</h3>
+<p class="ctx lang-en">IPDN · Full-stack Developer &amp; Consultant</p>
+<p class="ctx lang-id">IPDN · Full-stack Developer &amp; Konsultan</p>
+<p class="lang-en">Graduating students had to visit service points in person and chase signatures across several units. The process ran on conventional letters, took months, and left leadership with no visibility into where any individual case was stuck.</p>
+<p class="lang-id">Praja yang akan lulus harus mendatangi titik layanan satu per satu dan mengejar tanda tangan ke beberapa unit. Prosesnya berjalan di atas surat konvensional, memakan waktu berbulan-bulan, dan pimpinan tidak punya cara melihat di mana sebuah berkas tersangkut.</p>
+<ul class="outcomes lang-en"><li>Collapsed a multi-month paper workflow into a real-time digital service</li><li>Removed physical queuing and the congestion it created at service points</li><li>Routed each task to its correct role owner, with live reporting for leadership</li><li>Cut stationery and administrative spend tied to the paper process</li></ul>
+<ul class="outcomes lang-id"><li>Memangkas alur kerja kertas berbulan-bulan menjadi layanan digital real-time</li><li>Menghapus antrean fisik dan penumpukan di titik layanan</li><li>Mendelegasikan setiap tugas ke pemilik peran yang tepat, dengan pelaporan langsung bagi pimpinan</li><li>Memangkas anggaran ATK dan administrasi yang melekat pada proses kertas</li></ul>
+<div class="stack"><span class="tag">Laravel</span><span class="tag">Livewire</span><span class="tag">MySQL</span><span class="tag">Google OAuth</span><span class="tag">2FA</span><span class="tag">reCAPTCHA</span><span class="tag">SMTP</span><span class="tag">Excel / PDF export</span><span class="tag">Ubuntu Server</span></div>
+<a class="visit" href="https://bebaspustaka.ipdn.ac.id" rel="noopener">bebaspustaka.ipdn.ac.id →</a><br>
+</article>
+<article class="card">
+<h3 class="lang-en">LPDSI Digital Services Portal</h3>
+<h3 class="lang-id">Portal Layanan Digital LPDSI</h3>
+<p class="ctx lang-en">IPDN · Full-stack Developer &amp; Consultant</p>
+<p class="ctx lang-id">IPDN · Full-stack Developer &amp; Konsultan</p>
+<p class="lang-en">Requests that should take minutes — booking a lab, borrowing an asset, arranging a virtual meeting — each required several rounds of paperwork before anyone could act. I consolidated them into a single request-and-fulfilment portal.</p>
+<p class="lang-id">Permintaan yang semestinya selesai dalam hitungan menit — memesan laboratorium, meminjam aset, mengatur rapat virtual — masing-masing menuntut beberapa putaran berkas sebelum bisa dieksekusi. Semuanya saya satukan ke dalam satu portal permintaan dan pemenuhan.</p>
+<ul class="outcomes lang-en"><li>Virtual meeting provisioning, laboratory scheduling and institutional asset lending</li><li>Unified intake for complaints, formal requests and enquiries</li><li>Removed the information loss inherent in letter-based routing</li></ul>
+<ul class="outcomes lang-id"><li>Penyediaan rapat virtual, penjadwalan laboratorium, dan peminjaman aset lembaga</li><li>Satu pintu masuk untuk pengaduan, permohonan, dan pertanyaan</li><li>Menghapus kehilangan informasi yang melekat pada pendisposisian berbasis surat</li></ul>
+<div class="stack"><span class="tag">Laravel</span><span class="tag">Livewire</span><span class="tag">MySQL</span><span class="tag">Google OAuth</span><span class="tag">2FA</span><span class="tag">Ubuntu Server</span></div>
+<a class="visit" href="https://lpdsi.ipdn.ac.id" rel="noopener">lpdsi.ipdn.ac.id →</a><br>
+</article>
+<article class="card">
+<h3 class="lang-en">SIMAMI — Internal Quality Audit Management</h3>
+<h3 class="lang-id">SIMAMI — Manajemen Audit Mutu Internal</h3>
+<p class="ctx lang-en">IPDN · Full-stack Developer &amp; Consultant</p>
+<p class="ctx lang-id">IPDN · Full-stack Developer &amp; Konsultan</p>
+<p class="lang-en">Accreditation evidence lived as physical documents spread across faculties, study programmes, bureaus, institutes and units. During audit season documents were routinely misfiled or lost, and nobody could report on what actually existed.</p>
+<p class="lang-id">Bukti akreditasi tersimpan sebagai dokumen fisik yang tersebar di fakultas, program studi, biro, lembaga, dan unit. Saat musim audit, dokumen rutin tercecer atau hilang, dan tidak ada yang bisa melaporkan apa sebenarnya yang tersedia.</p>
+<ul class="outcomes lang-en"><li>Centralised accreditation documentation institution-wide into one searchable repository</li><li>Introduced document classification, making retrieval a query rather than a search party</li><li>Real-time reporting and transparent completeness statistics ahead of audits</li></ul>
+<ul class="outcomes lang-id"><li>Memusatkan dokumentasi akreditasi seluruh institusi ke dalam satu repositori yang bisa dicari</li><li>Menerapkan klasifikasi dokumen, sehingga pencarian menjadi kueri, bukan perburuan</li><li>Pelaporan real-time dan statistik kelengkapan yang transparan menjelang audit</li></ul>
+<div class="stack"><span class="tag">Laravel</span><span class="tag">Livewire</span><span class="tag">MySQL</span><span class="tag">Google OAuth</span><span class="tag">2FA</span><span class="tag">Excel / PDF export</span></div>
+<a class="visit" href="https://simami.ipdn.ac.id" rel="noopener">simami.ipdn.ac.id →</a><br>
+</article>
+<article class="card">
+<h3 class="lang-en">Data Praja — Student Information System</h3>
+<h3 class="lang-id">Data Praja — Sistem Informasi Praja</h3>
+<p class="ctx lang-en">IPDN · Full-stack Developer &amp; Consultant</p>
+<p class="ctx lang-id">IPDN · Full-stack Developer &amp; Konsultan</p>
+<p class="lang-en">Student records were fragmented across separate processes with no reliable path to national-level reporting. I built a single system of record covering the full student lifecycle.</p>
+<p class="lang-id">Data praja terpecah di proses-proses terpisah tanpa jalur yang andal menuju pelaporan tingkat nasional. Saya membangun satu sistem rujukan tunggal yang mencakup seluruh siklus kepraja-an.</p>
+<ul class="outcomes lang-en"><li>Consolidated student data with synchronisation to national reporting requirements</li><li>Unified health records, disciplinary records and academic progression in one place</li><li>Handled progression, retention and demotion decisions with auditable statistics</li></ul>
+<ul class="outcomes lang-id"><li>Menyatukan data praja dengan sinkronisasi ke kebutuhan pelaporan nasional</li><li>Menyatukan rekam kesehatan, catatan pelanggaran, dan kenaikan tingkat di satu tempat</li><li>Menangani keputusan naik, tahan, dan turun tingkat dengan statistik yang dapat diaudit</li></ul>
+<div class="stack"><span class="tag">Laravel</span><span class="tag">Livewire</span><span class="tag">MySQL</span><span class="tag">Google OAuth</span><span class="tag">2FA</span><span class="tag">Git</span></div>
+<a class="visit" href="https://datapraja.ipdn.ac.id" rel="noopener">datapraja.ipdn.ac.id →</a><br>
+</article>
+<p class="group-label lang-en">Enterprise systems — under NDA</p>
+<p class="group-label lang-id">Sistem enterprise — terikat NDA</p>
+<article class="card">
+<h3 class="lang-en">Fund Reconciliation Platform</h3>
+<h3 class="lang-id">Platform Rekonsiliasi Dana</h3>
+<p class="ctx lang-en">Financial services · Backend Developer <span class="nda">NDA</span></p>
+<p class="ctx lang-id">Jasa keuangan · Backend Developer <span class="nda">NDA</span></p>
+<p class="lang-en">Three parties — the company, application users and partner banks — each held a slightly different record of the same transactions. Reconciliation was manual, and monthly, quarterly and annual reporting was assembled by hand.</p>
+<p class="lang-id">Tiga pihak — perusahaan, pengguna aplikasi, dan bank mitra — masing-masing memegang catatan yang sedikit berbeda atas transaksi yang sama. Rekonsiliasi dikerjakan manual, dan pelaporan bulanan, triwulan, serta tahunan disusun dengan tangan.</p>
+<ul class="outcomes lang-en"><li>Reduced the reconciliation function from 15 staff to 4 — roughly 73% less manual effort</li><li>Replaced hand-assembled periodic reporting with automated real-time delivery to banks</li><li>Full transaction lifecycle handling across success, pending and rejected states</li><li>Synchronised data with the surrounding application estate</li></ul>
+<ul class="outcomes lang-id"><li>Memangkas fungsi rekonsiliasi dari 15 staf menjadi 4 — sekitar 73% lebih sedikit kerja manual</li><li>Mengganti pelaporan berkala manual dengan pengiriman real-time otomatis ke pihak bank</li><li>Menangani siklus transaksi penuh: sukses, tertunda, dan ditolak</li><li>Menyinkronkan data dengan aplikasi-aplikasi pendukung di sekitarnya</li></ul>
+<div class="stack"><span class="tag">Laravel Octane</span><span class="tag">MySQL</span><span class="tag">Oracle</span><span class="tag">Docker</span><span class="tag">AWS</span></div>
+</article>
+<article class="card">
+<h3 class="lang-en">Payment Gateway Platform</h3>
+<h3 class="lang-id">Platform Payment Gateway</h3>
+<p class="ctx lang-en">Logistics &amp; port operations · Backend Developer <span class="nda">NDA</span></p>
+<p class="ctx lang-id">Logistik &amp; kepelabuhanan · Backend Developer <span class="nda">NDA</span></p>
+<p class="lang-en">The business paid a third-party provider both a subscription and an administrative fee on every single transaction. I built the gateway in-house and took the dependency off the books.</p>
+<p class="lang-id">Perusahaan membayar penyedia pihak ketiga berupa langganan sekaligus biaya admin untuk setiap transaksi. Gateway-nya saya bangun sendiri di dalam, dan ketergantungan itu dihapus dari anggaran.</p>
+<ul class="outcomes lang-en"><li>Cut annual payment processing expenditure by approximately 40%</li><li>Eliminated per-transaction administrative fees entirely</li><li>Removed a third-party dependency from a revenue-critical path</li><li>Proposed and implemented Docker-based containerisation on an under-utilised production server, consolidating several applications onto hardware provisioned well beyond one application's needs</li></ul>
+<ul class="outcomes lang-id"><li>Memangkas pengeluaran pemrosesan pembayaran tahunan sekitar 40%</li><li>Menghapus biaya admin per transaksi sepenuhnya</li><li>Menghilangkan ketergantungan pihak ketiga dari jalur yang kritis bagi pendapatan</li><li>Mengusulkan dan menerapkan kontainerisasi berbasis Docker pada server produksi yang kapasitasnya menganggur, menyatukan beberapa aplikasi ke perangkat keras yang spesifikasinya jauh melampaui kebutuhan satu aplikasi</li></ul>
+<div class="stack"><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">Docker</span><span class="tag">AWS</span></div>
+</article>
+<p class="group-label lang-en">Institutional websites</p>
+<p class="group-label lang-id">Situs kelembagaan</p>
+<article class="card">
+<h3 class="lang-en">Four institutional web presences</h3>
+<h3 class="lang-id">Empat situs kelembagaan</h3>
+<p class="ctx lang-en">IPDN · Full-stack Developer &amp; Consultant</p>
+<p class="ctx lang-id">IPDN · Full-stack Developer &amp; Konsultan</p>
+<p class="lang-en">Public-facing sites for the Institute for Educational Development and Internal Quality Assurance (LP3MI), the Governance Professional Programme (PPPKP), the Papua Regional Campus, and the Research Institute (Lemlit). Each site is a formal requirement of institutional accreditation and serves as its unit's publication channel — research reports, intellectual property records, strategic governance studies, programme news.</p>
+<p class="lang-id">Situs publik untuk Lembaga Pengembangan Pendidikan dan Penjaminan Mutu Internal (LP3MI), Program Profesi Kepamongprajaan (PPPKP), Kampus Daerah Papua, dan Lembaga Penelitian (Lemlit). Setiap situs merupakan salah satu syarat akreditasi institusi sekaligus kanal publikasi unitnya — laporan penelitian, dokumen HAKI, kajian strategis pemerintahan, dan berita program.</p>
+<div class="stack"><span class="tag">WordPress</span><span class="tag">aPanel</span><span class="tag">MySQL</span><span class="tag">SMTP</span><span class="tag">2FA</span><span class="tag">reCAPTCHA</span></div>
+<a class="visit" href="https://lp3mi.ipdn.ac.id" rel="noopener">lp3mi.ipdn.ac.id →</a><br>
+<a class="visit" href="https://pppkp.ipdn.ac.id" rel="noopener">pppkp.ipdn.ac.id →</a><br>
+<a class="visit" href="https://papua.ipdn.ac.id" rel="noopener">papua.ipdn.ac.id →</a><br>
+<a class="visit" href="https://lemlit.ipdn.ac.id" rel="noopener">lemlit.ipdn.ac.id →</a><br>
+</article>
+</div>
+</section>
+<section id="experience">
+<div class="wrap">
+<h2 class="lang-en">Experience</h2>
+<h2 class="lang-id">Pengalaman</h2>
+<p class="sub lang-en">Seven years of production software delivery</p>
+<p class="sub lang-id">Tujuh tahun membangun perangkat lunak yang berjalan di produksi</p>
+<div class="job">
+<h3 class="lang-en">IT Technical Expert — Senior Full-Stack Engineer</h3>
+<h3 class="lang-id">Tenaga Ahli Teknologi Informasi — Senior Full-Stack Engineer</h3>
+<p class="org">Institut Pemerintahan Dalam Negeri (IPDN), Government of Indonesia</p>
+<p class="when lang-en">2023 – Present · Contract · Sumedang, Hybrid</p>
+<p class="when lang-id">2023 – sekarang · Kontrak · Sumedang, Hybrid</p>
+<p class="lang-en">Lead end-to-end delivery of institutional platforms, from requirements elicitation and systems analysis through implementation, deployment and documentation. Administer production Ubuntu and nginx servers and Proxmox virtualisation hosts. Act as the interface between non-technical users and the development team.</p>
+<p class="lang-id">Memimpin penyampaian platform kelembagaan dari hulu ke hilir: penggalian kebutuhan, analisis sistem, implementasi, deployment, hingga dokumentasi. Mengelola server produksi Ubuntu dan nginx serta host virtualisasi Proxmox. Menjadi penghubung antara pengguna non-teknis dan tim pengembang.</p>
+</div>
+<div class="job">
+<h3 class="lang-en">Backend Developer</h3>
+<h3 class="lang-id">Backend Developer</h3>
+<p class="org">PT ValueStream International</p>
+<p class="when lang-en">2022 – 2023 · Contract · Bandung, Hybrid</p>
+<p class="when lang-id">2022 – 2023 · Kontrak · Bandung, Hybrid</p>
+<p class="lang-en">Built and deployed fund reconciliation API services for the company and its partner banks, with real-time reporting pipelines and two-factor authentication across internal service access.</p>
+<p class="lang-id">Membangun dan men-deploy layanan API rekonsiliasi dana untuk perusahaan dan bank mitra, lengkap dengan alur pelaporan real-time dan autentikasi dua faktor pada akses layanan internal.</p>
+</div>
+<div class="job">
+<h3 class="lang-en">Backend Developer</h3>
+<h3 class="lang-id">Backend Developer</h3>
+<p class="org">PT Integrasi Logistik Cipta Solusi</p>
+<p class="when lang-en">2021 – 2022 · Contract · North Jakarta, Hybrid</p>
+<p class="when lang-id">2021 – 2022 · Kontrak · Jakarta Utara, Hybrid</p>
+<p class="lang-en">Designed and built an in-house payment gateway API service, replacing a paid third-party provider and removing per-transaction administrative fees.</p>
+<p class="lang-id">Merancang dan membangun layanan API payment gateway internal, menggantikan penyedia pihak ketiga berbayar dan menghapus biaya admin per transaksi.</p>
+</div>
+<div class="job">
+<h3 class="lang-en">Application Developer, IT Staff</h3>
+<h3 class="lang-id">Staf IT — Application Developer</h3>
+<p class="org">Universitas Islam Bandung (UNISBA)</p>
+<p class="when lang-en">2019 – 2020 · Full-time · Bandung, On-site</p>
+<p class="when lang-id">2019 – 2020 · Penuh waktu · Bandung, Onsite</p>
+<p class="lang-en">Built the university's paperless correspondence platform covering internal and inter-institutional document workflows, a student identity card issuance application, and websites for multiple faculties.</p>
+<p class="lang-id">Membangun platform surat-menyurat paperless universitas yang mencakup alur dokumen internal maupun antarinstansi, aplikasi pencetakan kartu mahasiswa, dan situs untuk sejumlah fakultas.</p>
+</div>
+<div class="job">
+<h3 class="lang-en">Earlier</h3>
+<h3 class="lang-id">Sebelumnya</h3>
+<p class="org">PT Dago Wisata Internasional · Pikmi Rajawali · Universitas Padjadjaran</p>
+<p class="when lang-en">2012 – 2017</p>
+<p class="when lang-id">2012 – 2017</p>
+<p class="lang-en">IT intern delivering a pilgrim queue management system (2017); IT instructor authoring curriculum and examinations (2013–2014); freelance full-stack developer building a prospective-student admissions data system (2012).</p>
+<p class="lang-id">Magang IT membangun sistem antrean jamaah umrah (2017); instruktur IT yang menyusun modul dan soal ujian (2013–2014); full-stack developer lepas yang membangun sistem data pendaftaran calon mahasiswa (2012).</p>
+</div>
+</div>
+</section>
+<section id="skills">
+<div class="wrap">
+<h2 class="lang-en">Technical Skills</h2>
+<h2 class="lang-id">Keahlian Teknis</h2>
+<p class="sub lang-en">What I reach for, and what I have run in production</p>
+<p class="sub lang-id">Yang saya gunakan sehari-hari, dan yang sudah saya jalankan di produksi</p>
+<dl>
+<div class="skillrow"><dt class="lang-en">Languages</dt><dt class="lang-id">Bahasa pemrograman</dt><dd class="lang-en">PHP, JavaScript, TypeScript, Python, SQL, HTML, CSS</dd><dd class="lang-id">PHP, JavaScript, TypeScript, Python, SQL, HTML, CSS</dd></div>
+<div class="skillrow"><dt class="lang-en">Backend</dt><dt class="lang-id">Backend</dt><dd class="lang-en">Laravel, Laravel Octane, Livewire, CodeIgniter, Node.js, Express.js, REST API design, system integration</dd><dd class="lang-id">Laravel, Laravel Octane, Livewire, CodeIgniter, Node.js, Express.js, perancangan REST API, integrasi sistem</dd></div>
+<div class="skillrow"><dt class="lang-en">Frontend</dt><dt class="lang-id">Frontend</dt><dd class="lang-en">React, Vue.js, Next.js, Nuxt.js, Tailwind CSS, Bootstrap, AJAX</dd><dd class="lang-id">React, Vue.js, Next.js, Nuxt.js, Tailwind CSS, Bootstrap, AJAX</dd></div>
+<div class="skillrow"><dt class="lang-en">Databases</dt><dt class="lang-id">Basis data</dt><dd class="lang-en">MySQL, PostgreSQL, Oracle Database, MongoDB, Redis</dd><dd class="lang-id">MySQL, PostgreSQL, Oracle Database, MongoDB, Redis</dd></div>
+<div class="skillrow"><dt class="lang-en">Containers &amp; cloud</dt><dt class="lang-id">Kontainer &amp; cloud</dt><dd class="lang-en">Docker, AWS, Proxmox, Ubuntu Server, nginx, VPS administration</dd><dd class="lang-id">Docker, AWS, Proxmox, Ubuntu Server, nginx, administrasi VPS</dd></div>
+<div class="skillrow"><dt class="lang-en">Security &amp; auth</dt><dt class="lang-id">Keamanan &amp; autentikasi</dt><dd class="lang-en">OAuth 2.0 (domain-restricted), JWT, two-factor authentication, reCAPTCHA, SMTP, payment gateway integration</dd><dd class="lang-id">OAuth 2.0 (dibatasi domain), JWT, autentikasi dua faktor, reCAPTCHA, SMTP, integrasi payment gateway</dd></div>
+<div class="skillrow"><dt class="lang-en">Testing &amp; tooling</dt><dt class="lang-id">Pengujian &amp; perkakas</dt><dd class="lang-en">PHPUnit, Jest, Postman, Git, GitHub, GitLab</dd><dd class="lang-id">PHPUnit, Jest, Postman, Git, GitHub, GitLab</dd></div>
+<div class="skillrow"><dt class="lang-en">AI-assisted engineering</dt><dt class="lang-id">Rekayasa berbantu AI</dt><dd class="lang-en">Claude, Cursor, Antigravity, prompt engineering, agentic workflows</dd><dd class="lang-id">Claude, Cursor, Antigravity, prompt engineering, alur kerja agentic</dd></div>
+<div class="skillrow"><dt class="lang-en">Practice</dt><dt class="lang-id">Metode kerja</dt><dd class="lang-en">Agile, OOP, requirements gathering, systems analysis, UML modelling, ERD design, technical documentation</dd><dd class="lang-id">Agile, OOP, penggalian kebutuhan, analisis sistem, pemodelan UML, perancangan ERD, dokumentasi teknis</dd></div>
+<div class="skillrow"><dt class="lang-en">Languages spoken</dt><dt class="lang-id">Bahasa</dt><dd class="lang-en">Indonesian (native), Sundanese (native), English (professional working — written; intermediate — spoken)</dd><dd class="lang-id">Indonesia (ibu), Sunda (ibu), Inggris (profesional — tulis; menengah — lisan)</dd></div>
+</dl>
+</div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2 class="lang-en">Get in touch</h2><h2 class="lang-id">Hubungi saya</h2>
+    <p class="sub lang-en">Open to senior and lead backend roles — remote, hybrid, or relocation</p>
+    <p class="sub lang-id">Terbuka untuk peran backend senior dan lead — remote, hybrid, atau relokasi</p>
+    <p class="lang-en">The fastest way to reach me is email. I am based in Bandung, Indonesia (GMT+7) and work
+      comfortably with teams across South East Asia and adjacent time zones.</p>
+    <p class="lang-id">Cara tercepat menghubungi saya adalah lewat surel. Saya berbasis di Bandung, Indonesia
+      (GMT+7) dan terbiasa bekerja dengan tim di Asia Tenggara serta zona waktu yang berdekatan.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:maulana.indra808@gmail.com">maulana.indra808@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/rama-wirahma/" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/indraMaulanaPratama" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="lang-en">© <span class="yr">2026</span> Indra Maulana Pratama · Static site, hosted on GitHub Pages.</p>
+    <p class="lang-id">© <span class="yr">2026</span> Indra Maulana Pratama · Situs statis, di-hosting di GitHub Pages.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var TK='imp-theme', LK='imp-lang';
+  var themeBtn=document.getElementById('themeBtn'), langBtn=document.getElementById('langBtn');
+
+  try{ var st=localStorage.getItem(TK); if(st) root.setAttribute('data-theme', st); }catch(e){}
+  try{ var sl=localStorage.getItem(LK); if(sl) setLang(sl); }catch(e){}
+
+  function setLang(l){
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l);
+    langBtn.textContent = (l === 'en') ? 'ID' : 'EN';
+    langBtn.setAttribute('aria-label', (l === 'en') ? 'Ganti ke Bahasa Indonesia' : 'Switch to English');
+  }
+
+  themeBtn.addEventListener('click', function(){
+    var cur=root.getAttribute('data-theme');
+    if(!cur) cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light';
+    var next = cur==='dark' ? 'light':'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem(TK,next); }catch(e){}
+  });
+
+  langBtn.addEventListener('click', function(){
+    var next = root.getAttribute('data-lang')==='en' ? 'id':'en';
+    setLang(next);
+    try{ localStorage.setItem(LK,next); }catch(e){}
+  });
+
+  var y=new Date().getFullYear();
+  Array.prototype.forEach.call(document.querySelectorAll('.yr'), function(n){ n.textContent=y; });
+})();
+</script>
+</body>
+</html>
